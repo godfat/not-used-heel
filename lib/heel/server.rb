@@ -61,6 +61,7 @@ module Heel
         @default_options.address         = "0.0.0.0"
         @default_options.port            = 4331
         @default_options.document_root   = Dir.pwd
+        @default_options.encoding        = "utf-8"
         @default_options.daemonize       = false
         @default_options.highlighting    = true
         @default_options.kill            = false
@@ -123,6 +124,12 @@ module Heel
           @parsed_options.document_root = File.expand_path(document_root)
           raise ::OptionParser::ParseError, "#{@parsed_options.document_root} is not a valid directory" if not File.directory?(@parsed_options.document_root)
                       end
+
+        op.on("-e", "--encoding ENCODING", String,
+              "Set the encoding for XHTML page.",
+              "  (default: #{default_options.encoding})") do |encoding|
+          @parsed_options.encoding = encoding
+        end
 
         op.on("-v", "--version", "Show version") do 
           @parsed_options.show_version = true
@@ -228,7 +235,8 @@ module Heel
       server.log_file = log_file
 
       app = Heel::RackApp.new({ :document_root => options.document_root,
-                                :highlighting  => options.highlighting})
+                                :encoding      => options.encoding,
+                                :highlighting  => options.highlighting })
 
       Heel::Logger.log_file = log_file
       server.app = Rack::Builder.new {

@@ -88,7 +88,8 @@ module Heel
         entries << entry_data
       end
 
-      entries = entries.sort_by { |e| e.link }
+      encoding = options[:encoding]
+      entries  = entries.sort_by { |e| e.link }
       return template.result(binding)
     end
  
