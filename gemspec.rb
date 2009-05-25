@@ -1,6 +1,4 @@
 
-$LOAD_PATH.unshift('lib')
-
 require 'rubygems'
 require 'heel/version'
 require 'tasks/config'
