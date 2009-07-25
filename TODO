@@ -1,3 +1,2 @@
-Add HEAD support
-
-Add rackup like option (e.g. --server)
+- Add HEAD support
+- Add rackup like option (e.g. --server)

@@ -1,8 +1,13 @@
 = Changelog
-== Version 1.0.4 - ?
+== Version 2.0.1 - ?
 
 * Fixed an issue that require thin 1.0.0 to activate heel.
 * Add -e or --encoding option for XHTML page encoding.
+
+== Version 2.0.0 - 2009-06-24
+
+* Change highlighting mode default to 'off' instead of 'on'
+* Update for Thin 1.2.2
 
 == Version 1.0.3 - 2009-03-02
 
